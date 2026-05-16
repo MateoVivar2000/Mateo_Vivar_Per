@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
     <session-factory>
+
+        <!-- Conexión a MySQL -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/articulospersonalizados</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">0105944342Mavi</property>
 
+        <!-- Dialecto -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate.show_sql">true</property>
 
+        <!-- Crea/actualiza las tablas automáticamente -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Ver SQL en consola (opcional) -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- ── Entidades registradas ── -->
         <mapping class="articulosPersonalizados.ArticuloPersonalizado"/>
+        <mapping class="articulosPersonalizados.Categoria"/>
+        <mapping class="articulosPersonalizados.Proveedor"/>
+        <mapping class="articulosPersonalizados.Cliente"/>
+        <mapping class="articulosPersonalizados.Pedido"/>
+
     </session-factory>
 </hibernate-configuration>

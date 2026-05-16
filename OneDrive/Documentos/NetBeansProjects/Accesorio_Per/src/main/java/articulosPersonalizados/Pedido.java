@@ -28,7 +28,7 @@ public class Pedido {
     }
 
     // Muchos pedidos → un cliente
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 

@@ -132,4 +132,15 @@ public class ArticuloPersonalizadoDAO {
     public void cerrar() {
         if (factory != null) factory.close();
     }
+    public ArticuloPersonalizado buscarPorId(int id) {
+        Session session = factory.openSession();
+        try {
+            return session.get(ArticuloPersonalizado.class, id);
+        } catch (Exception e) {
+            System.err.println("Error al buscar por id: " + e.getMessage());
+            return null;
+        } finally {
+            session.close();
+        }
+    }
 }
